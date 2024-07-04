@@ -18,7 +18,6 @@ class UserViewModel : ViewModel() {
     var currentlySelectedTab by mutableStateOf(0)
     var userPostList = mutableStateListOf<PostItem>()
     var userCommentList = mutableStateListOf<CommentPreDataNull>()
-    var currentContentList = mutableStateListOf<Any>(userPostList)
 
     fun initNetworkProvider(context: Context) {
         redditNetworkProvider = RedditNetworkProvider(context)

@@ -33,7 +33,7 @@ object NavDestination {
 
 class MainActivity : ComponentActivity() {
 
-    lateinit var navigationController: NavHostController
+    private lateinit var navigationController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
