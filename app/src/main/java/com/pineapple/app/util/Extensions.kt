@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 
-
 fun <T : ViewModel> Context.getViewModel(type: Class<T>) : T
     = ViewModelProvider(this as ComponentActivity).get(type)
 

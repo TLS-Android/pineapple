@@ -37,7 +37,6 @@ class NetworkPagingSource(
                 prevKey = prevKey
             )
         } else {
-            Log.e("0", "children are empty lol")
             LoadResult.Page(listOf(), null, null)
         }
     }

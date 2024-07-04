@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.pineapple.app'
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "com.pineapple.app"
         minSdk 24
@@ -86,4 +86,5 @@ dependencies {
     implementation "com.atlassian.commonmark:commonmark:0.15.2"
     implementation "org.ocpsoft.prettytime:prettytime:4.0.4.Final"
 
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

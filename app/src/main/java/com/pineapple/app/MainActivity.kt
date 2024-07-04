@@ -2,7 +2,6 @@ package com.pineapple.app
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.*
@@ -62,7 +61,6 @@ class MainActivity : ComponentActivity() {
                 WelcomeView(navController = navigationController)
             }
             composable(route = NavDestination.HomePageView) {
-                Log.e("D", "dbbedbddsdddssddsdssddsds")
                 HomePageView(navController = navigationController)
             }
             composable(
@@ -77,7 +75,7 @@ class MainActivity : ComponentActivity() {
                     .edit()
                     .putString("API_LOGIN_AUTH_CODE", it.arguments?.getString("code"))
                     .putBoolean("USER_GUEST", false)
-                    .commit()
+                    .apply()
                 HomePageView(navController = navigationController)
             }
             composable(
