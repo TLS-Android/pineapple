@@ -1,10 +1,10 @@
 package com.pineapple.app.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.pineapple.app.model.reddit.PostItem
 import com.pineapple.app.network.RedditNetworkProvider
+import timber.log.Timber
 
 data class RedditPageStore(val before: String?, val after: String?)
 
@@ -28,16 +28,16 @@ class NetworkPagingSource(
         val nextKey = response.data.after
         val prevKey = response.data.before
         keys[keys.size] = RedditPageStore(prevKey, nextKey)
-        Log.e("0", "keys found: $prevKey and $nextKey")
+        Timber.tag("0").e("keys found: " + prevKey + " and " + nextKey)
         return if (response.data.children.isNotEmpty()) {
-            Log.e("0", "children aren't empty")
+            Timber.tag("0").e("children aren't empty")
             LoadResult.Page(
                 data = response.data.children,
                 nextKey = nextKey,
                 prevKey = prevKey
             )
         } else {
-            Log.e("0", "children are empty lol")
+            Timber.e("0", "Children are empty")
             LoadResult.Page(listOf(), null, null)
         }
     }

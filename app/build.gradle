@@ -86,4 +86,6 @@ dependencies {
     implementation "com.atlassian.commonmark:commonmark:0.15.2"
     implementation "org.ocpsoft.prettytime:prettytime:4.0.4.Final"
 
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
 }

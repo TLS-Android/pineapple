@@ -2,7 +2,6 @@ package com.pineapple.app
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.*
@@ -20,6 +19,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.pineapple.app.theme.PineappleTheme
 import com.pineapple.app.util.getPreferences
 import com.pineapple.app.view.*
+import timber.log.Timber
 
 object NavDestination {
     const val WelcomeView = "welcome"
@@ -33,10 +33,11 @@ object NavDestination {
 
 class MainActivity : ComponentActivity() {
 
-    lateinit var navigationController: NavHostController
+    private lateinit var navigationController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.i("Welcome to the Main Activity.")
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             PineappleTheme {
@@ -62,7 +63,6 @@ class MainActivity : ComponentActivity() {
                 WelcomeView(navController = navigationController)
             }
             composable(route = NavDestination.HomePageView) {
-                Log.e("D", "dbbedbddsdddssddsdssddsds")
                 HomePageView(navController = navigationController)
             }
             composable(
@@ -77,7 +77,7 @@ class MainActivity : ComponentActivity() {
                     .edit()
                     .putString("API_LOGIN_AUTH_CODE", it.arguments?.getString("code"))
                     .putBoolean("USER_GUEST", false)
-                    .commit()
+                    .apply()
                 HomePageView(navController = navigationController)
             }
             composable(
